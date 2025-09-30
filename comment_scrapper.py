@@ -16,8 +16,8 @@ nltk.download('punkt')
 nltk.download('averaged_perceptron_tagger')
 nltk.download('vader_lexicon')
 
-SONG = "youtube_rewind_2017"
-YOUTUBE_TITLE = "YouTube Rewind: The Shape of 2017 | #YouTubeRewind"
+SONG = "sailor_song"
+YOUTUBE_TITLE = "Gigi Perez - Sailor Song (Lyrics)"
 
 def sentiment_analysis(review_data):
     # make sure to download the ntlk binaries in the previous snippet
@@ -44,7 +44,7 @@ sleep(5)
 link=driver.find_element(By.XPATH,"""//*[@id="video-title"]/yt-formatted-string""")
 link.click()
 sleep(20)
-for i in range(200):
+for i in range(300):
     driver.execute_script("window.scrollBy(0,700)","")
     sleep(2)
 sleep(20)
