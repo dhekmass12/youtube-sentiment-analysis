@@ -16,8 +16,8 @@ nltk.download('punkt')
 nltk.download('averaged_perceptron_tagger')
 nltk.download('vader_lexicon')
 
-SONG = "sailor_song"
-YOUTUBE_TITLE = "Gigi Perez - Sailor Song (Lyrics)"
+SONG = "how_long"
+YOUTUBE_TITLE = 'Charlie Puth - "How Long" [Official Video]'
 
 def sentiment_analysis(review_data):
     # make sure to download the ntlk binaries in the previous snippet
@@ -44,7 +44,7 @@ sleep(5)
 link=driver.find_element(By.XPATH,"""//*[@id="video-title"]/yt-formatted-string""")
 link.click()
 sleep(20)
-for i in range(300):
+for i in range(200):
     driver.execute_script("window.scrollBy(0,700)","")
     sleep(2)
 sleep(20)
