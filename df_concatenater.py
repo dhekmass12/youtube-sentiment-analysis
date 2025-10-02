@@ -7,6 +7,14 @@ from nltk.stem import WordNetLemmatizer
 from sklearn.model_selection import train_test_split
 from langdetect import detect
 import os
+from textblob import TextBlob
+
+
+
+def sentiment_analysis(comment):
+    
+    blob = TextBlob(comment)
+    return "Positive" if blob.polarity >= 0.2 else ("Negative" if blob.polarity <= -0.2 else "Neutral")
 
 
 dfs = []
@@ -21,7 +29,11 @@ for file in files:
 
 df = pd.concat(dfs)
 
-# # lower all chars
+
+# limit characters to 100
+df["comment"] = df["comment"].str[:200]
+
+# lower all chars
 df["comment"] = df["comment"].str.lower()
 
 # retain only a-z and space
@@ -47,5 +59,7 @@ def is_english(text):
         return False
 
 df = df[df['comment'].apply(is_english)]
+
+df["sentiment"] = df['comment'].apply(lambda x: sentiment_analysis(x))
 
 df.to_csv("{}.csv".format("sentiment_analysis"),index=False)
