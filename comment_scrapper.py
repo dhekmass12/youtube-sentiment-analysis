@@ -19,14 +19,6 @@ nltk.download('vader_lexicon')
 SONG = "how_long"
 YOUTUBE_TITLE = 'Charlie Puth - "How Long" [Official Video]'
 
-def sentiment_analysis(review_data):
-    # make sure to download the ntlk binaries in the previous snippet
-    data = []
-    for review in review_data:
-        blob = TextBlob(review)
-        data.append("Positive" if blob.polarity >= 0.2 else ("Negative" if blob.polarity <= -0.2 else "Neutral"))
-    
-    return data
 
 driver=webdriver.Chrome()
 driver.set_page_load_timeout(10)
@@ -58,8 +50,6 @@ for i in comment:
     text = i.text
     text = text.split("\n")[0]
     comments.append(text)
-
-sentiments = sentiment_analysis(comments)
 
 df=pd.DataFrame({"comment": comments, "sentiment": sentiments})
 df.to_csv("{}.csv".format(SONG),index=False)

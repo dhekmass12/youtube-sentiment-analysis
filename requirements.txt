@@ -1,4 +1,12 @@
-beautifulsoup4
-psycopg2
-selenium
-webdriver_manager==3.8.3
+httpx==0.28.1
+keras==3.11.3
+langdetect==1.0.9
+matplotlib==3.10.6
+nltk==3.9.1
+pandas==2.3.3
+parsel==1.8.1
+scikit_learn==1.7.2
+selenium==4.36.0
+tensorflow==2.20.0
+textblob==0.19.0
+undetected_chromedriver==3.5.5
